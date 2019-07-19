@@ -1,7 +1,7 @@
 <div>
   <app-simple-form
     [usage]="'list'"
-    (submit)="createList($event)"
+    (add)="createList($event)"
   ></app-simple-form>
 <div class="d-flex">
   <div *ngFor="let list of lists let i = index" class="border list-container">

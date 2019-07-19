@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ListService} from '../services/list.service';
 
 @Component({
   selector: 'app-list',
@@ -10,8 +9,9 @@ import {ListService} from '../services/list.service';
 export class ListComponent implements OnInit {
   openRemoveModal: string;
   @Input() list: any;
+  @Output() listId = new EventEmitter();
 
-  constructor(private ar: ActivatedRoute, private listService: ListService) {}
+  constructor(private ar: ActivatedRoute) {}
 
   ngOnInit() {
     this.ar.params.subscribe(id => console.log('list', id));
@@ -27,6 +27,6 @@ export class ListComponent implements OnInit {
     }
   }
   removeList(listId) {
-    // this.listId.emit(listId);
+    this.listId.emit(listId);
   }
 }

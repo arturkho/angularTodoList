@@ -10,8 +10,8 @@ import {ActivatedRoute} from '@angular/router';
 export class TaskComponent implements OnInit {
   newTaskName: string;
   @Input() task: any;
-  @Output() newTask = new EventEmitter<{ taskName?: string, taskId?: string, isDone?: boolean }>();
-  changeTask: string;
+  @Output() newTask = new EventEmitter<{ taskName?: string, id?: number, isDone?: boolean }>();
+  changeTask: number;
 
   constructor() {}
 
@@ -24,15 +24,15 @@ export class TaskComponent implements OnInit {
 
   acceptChanges(taskId) {
     if (this.newTaskName && this.newTaskName !== '' && this.newTaskName.match(/^\s+$/) === null) {
-      // this.task = {taskName: this.newTaskName, id: taskId, isDone: this.task.isDone, listId: task.listId};
+      this.task = {taskName: this.newTaskName, id: taskId, isDone: this.task.isDone, listId: this.task.listId};
       this.newTask.emit(this.task);
-      this.changeTask = '';
+      this.changeTask = null;
     }
   }
 
   update(isDone) {
     if (isBoolean(isDone) && isDone !== this.task.isDone) {
-      // this.task = {taskName: this.task.taskName, id: this.task.taskId, isDone: isDone, listId: task.listId};
+      this.task = {taskName: this.task.taskName, id: this.task.taskId, isDone, listId: this.task.listId};
       this.newTask.emit(this.task);
     }
   }

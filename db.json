@@ -2,45 +2,29 @@
   "lists": [
     {
       "listName": "1",
-      "id": 1
+      "id": 9293
     },
     {
-      "listName": "2",
-      "id": 2
+      "listName": "1",
+      "id": 8458
     },
     {
-      "listName": "3",
-      "id": 3
-    },
-    {
-      "listName": "4",
-      "id": 4
+      "listName": "12",
+      "id": 8652
     }
   ],
   "tasks": [
     {
-      "taskName": "task1",
-      "id": 1,
+      "taskName": "22",
+      "id": 1380,
       "isDone": false,
-      "listId": 1
+      "listId": 9293
     },
     {
-      "taskName": "task2",
-      "id": 2,
+      "taskName": "32",
+      "id": 9990,
       "isDone": false,
-      "listId": 2
-    },
-    {
-      "taskName": "task3",
-      "id": 3,
-      "isDone": false,
-      "listId": 3
-    },
-    {
-      "taskName": "task4",
-      "id": 4,
-      "isDone": false,
-      "listId": 4
+      "listId": 8458
     }
   ]
 }

@@ -9,7 +9,7 @@ export class SimpleFormComponent implements OnInit {
 
   entityName: string;
   @Input() usage: string;
-  @Output() submit = new EventEmitter();
+  @Output() add = new EventEmitter<string>();
   @Output() onClose = new EventEmitter<string>();
   isSave = false;
 
@@ -27,8 +27,9 @@ export class SimpleFormComponent implements OnInit {
 
   save() {
     if (this.entityName && this.entityName !== '' && this.entityName.match(/^\s+$/) === null) {
+      console.log(typeof this.entityName, "here")
       this.isSave = true;
-      this.submit.emit(this.entityName);
+      this.add.emit(this.entityName);
     }
   }
 }

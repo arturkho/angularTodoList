@@ -1,7 +1,7 @@
 <app-simple-form
   *ngIf="addTaskFormIsOpen === listId"
   [usage]="'task'"
-  (submit)="createTask($event)"
+  (add)="createTask($event)"
   (onClose)="closeForm($event)"
 ></app-simple-form>
 <button
@@ -17,5 +17,5 @@
     (newTask)='updateTask($event, i)'
   ></app-task>
   <router-outlet></router-outlet>
-  <button (click)="removeTask(i)" class="btn btn-sm custom-btn">x</button>
+  <button (click)="removeTask(task.id, i)" class="btn btn-sm custom-btn">x</button>
 </li>

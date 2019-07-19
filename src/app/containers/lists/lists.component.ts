@@ -7,7 +7,7 @@ import {ListService} from '../../services/list.service';
   styleUrls: ['./lists.component.scss']
 })
 export class ListsComponent implements OnInit {
- lists: any;
+  lists: any;
 
   constructor(private listService: ListService) {
   }
@@ -18,12 +18,18 @@ export class ListsComponent implements OnInit {
       }
     );
   }
+
   removeCurrentList(listId, index) {
+    this.listService.removeList(listId).subscribe();
     this.lists.splice(index, 1);
   }
+
   createList(listName) {
-    const id = '_' + Math.random().toString(36).substr(2, 9);
-    // const list = {listName: listName, listId: id};
-    // this.lists.unshift(list);
+    const id = Math.floor(Math.random() * 10000);
+    const list = {listName, id};
+    this.listService.createList(list).subscribe(l => {
+      console.log(l);
+      this.lists.push(l);
+    });
   }
 }

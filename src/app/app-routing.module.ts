@@ -2,10 +2,10 @@ import {TasksComponent} from './containers/tasks/tasks.component';
 import {ListsComponent} from './containers/lists/lists.component';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {NotFoundComponent} from './not-found/not-found.component';
-import {HomeComponent} from './home/home.component';
-import {TaskComponent} from './task/task.component';
-import {ListComponent} from './list/list.component';
+import {NotFoundComponent} from './components/not-found/not-found.component';
+import {HomeComponent} from './components/home/home.component';
+import {TaskComponent} from './components/task/task.component';
+import {ListComponent} from './components/list/list.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},

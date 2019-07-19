@@ -30,14 +30,17 @@ export class TasksComponent implements OnInit {
   }
 
   createTask(taskName) {
-    const id = '_' + Math.random().toString(36).substr(2, 9);
-    // const task = {taskName: taskName, taskId: id, isDone: false};
-    // this.tasks.unshift(task);
+    const id = Math.floor(Math.random() * 10000);
+    const task = {taskName, id, isDone: false, listId: this.listId};
+    this.taskService.createTask(task).subscribe(t => {
+      this.tasks.push(t);
+    });
     this.addTaskFormIsOpen = null;
   }
 
-  removeTask(index) {
+  removeTask(taskId, index) {
     this.tasks.splice(index, 1);
+    this.taskService.removeTask(taskId).subscribe();
   }
 
   closeForm(value) {

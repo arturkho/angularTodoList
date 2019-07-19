@@ -7,17 +7,17 @@
       [checked]="task.isDone"
     >
     <div
-      *ngIf="changeTask !== task.taskId"
+      *ngIf="changeTask !== task.id"
       class="task-name"
       [ngClass]="{'task-done': task.isDone === true, 'task-not-done': task.isDone === false}"
     >
       <a
-        [routerLink]="['tasks', task.taskId]">
+        [routerLink]="['tasks', task.id]">
         {{task.taskName}}
       </a>
     </div>
     <div
-      *ngIf="changeTask === task.taskId">
+      *ngIf="changeTask === task.id">
       <input
         type="text"
         name="newTaskName"
@@ -28,15 +28,15 @@
   </div>
   <div class="task-update-form">
     <button
-      (click)="onChange(task.taskId)"
-      *ngIf="changeTask !== task.taskId"
+      (click)="onChange(task.id)"
+      *ngIf="changeTask !== task.id"
       class="btn btn-sm custom-btn"
     >c
     </button>
     <button
       class="btn btn-sm custom-btn"
-      (click)="acceptChanges(task.taskId)"
-      *ngIf="changeTask === task.taskId"
+      (click)="acceptChanges(task.id)"
+      *ngIf="changeTask === task.id"
     >Accept
     </button>
   </div>
