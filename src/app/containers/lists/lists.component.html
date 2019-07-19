@@ -1,0 +1,14 @@
+<div>
+  <app-simple-form
+    [usage]="'list'"
+    (submit)="createList($event)"
+  ></app-simple-form>
+<div class="d-flex">
+  <div *ngFor="let list of lists let i = index" class="border list-container">
+    <app-list
+      [list]="list"
+      (listId)='removeCurrentList($event, i)'
+    ></app-list>
+  </div>
+</div>
+</div>

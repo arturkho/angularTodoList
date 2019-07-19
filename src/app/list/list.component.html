@@ -1,0 +1,31 @@
+<div
+  *ngIf="openRemoveModal === list.id"
+  class="modal-confirmation">
+  <h5>
+    Remove list {{list.listName}}???
+  </h5>
+  <div class="d-flex justify-content-between">
+    <button
+      (click)="removeList(list.id)"
+      class="btn btn-danger">
+      YES
+    </button>
+    <button
+      (click)="closeModal(list.id)"
+      class="custom-btn">
+      NO
+    </button>
+  </div>
+</div>
+<div
+  class="column-title d-flex justify-content-between">
+  <a [routerLink]="['/lists', list.id]">{{list.listName}}</a>
+  <button
+    class="btn btn-danger btn-sm"
+    (click)="openModal(list.id)">
+    x
+  </button>
+</div>
+<app-tasks
+  [listId]="list.id"
+></app-tasks>

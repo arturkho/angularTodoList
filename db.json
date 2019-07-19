@@ -1,0 +1,46 @@
+{
+  "lists": [
+    {
+      "listName": "1",
+      "id": 1
+    },
+    {
+      "listName": "2",
+      "id": 2
+    },
+    {
+      "listName": "3",
+      "id": 3
+    },
+    {
+      "listName": "4",
+      "id": 4
+    }
+  ],
+  "tasks": [
+    {
+      "taskName": "task1",
+      "id": 1,
+      "isDone": false,
+      "listId": 1
+    },
+    {
+      "taskName": "task2",
+      "id": 2,
+      "isDone": false,
+      "listId": 2
+    },
+    {
+      "taskName": "task3",
+      "id": 3,
+      "isDone": false,
+      "listId": 3
+    },
+    {
+      "taskName": "task4",
+      "id": 4,
+      "isDone": false,
+      "listId": 4
+    }
+  ]
+}

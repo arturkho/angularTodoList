@@ -1,0 +1,12 @@
+<form class="simple-form">
+  <!--  <input type="text" #box (keyup.enter)="onEnter(box.value)">-->
+<div class="form-wrapper">
+  <input type="text"
+         name="entityName"
+         [(ngModel)]="entityName"
+         class="simple-form-input"
+         (keydown)="close($event)"
+  >
+  <button (click)="save()" class="btn custom-btn btn-sm">+ {{usage}}</button>
+</div>
+</form>

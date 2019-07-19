@@ -1,0 +1,25 @@
+app-form{
+  margin: 1em;
+}
+.simple-form{
+  display: flex;
+  align-items: center;
+  margin: 1.1em;
+}
+.simple-form-input{
+  border: none;
+  height: 90%;
+  width: 70%;
+}
+.simple-form-input:focus {
+  outline:none;
+}
+.simple-form > button{
+  width: 30%;
+}
+.form-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(135, 135, 135, 0.79);
+}

@@ -1,0 +1,21 @@
+<app-simple-form
+  *ngIf="addTaskFormIsOpen === listId"
+  [usage]="'task'"
+  (submit)="createTask($event)"
+  (onClose)="closeForm($event)"
+></app-simple-form>
+<button
+  *ngIf="addTaskFormIsOpen !== listId"
+  (click)="openAddTaskForm(listId)"
+  class="add-task-btn">
+  ADD TASK
+</button>
+<li *ngFor="let task of tasks, let i = index"
+    class="list-item d-flex justify-content-between align-items-center">
+  <app-task
+    [task]="task"
+    (newTask)='updateTask($event, i)'
+  ></app-task>
+  <router-outlet></router-outlet>
+  <button (click)="removeTask(i)" class="btn btn-sm custom-btn">x</button>
+</li>

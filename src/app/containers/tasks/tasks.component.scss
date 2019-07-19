@@ -1,0 +1,27 @@
+.list-item {
+  list-style: none;
+  margin: 1em 0 1em 0;
+}
+
+.change-task-name {
+  display: none;
+}
+
+.task-name {
+  margin: 0 1em 0 1em;
+  display: block;
+}
+
+.add-task-btn:hover {
+  background-color: rgba(222, 227, 213, 1);
+  color: rgba(7, 8, 5, 1);
+}
+
+.add-task-btn {
+  background-color: rgba(222, 227, 213, 0.3);
+  color: rgba(7, 8, 5, 0.3);
+  width: 100%;
+  height: 3em;
+  border: 1px dotted rgba(207, 227, 191, 0.3);
+  box-shadow: none;
+}

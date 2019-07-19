@@ -1,0 +1,17 @@
+.column-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: .5rem;
+}
+
+
+.modal-confirmation {
+  color: rgba(255, 10, 3, 0.59);
+  position: absolute;
+  top: 70px;
+  width: 17em;
+  border: 1px solid rgba(54, 54, 54, 0.11);
+  background-color: #ffffff;
+  padding: 1em;
+}

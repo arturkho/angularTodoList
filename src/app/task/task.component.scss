@@ -1,0 +1,17 @@
+app-task{
+}
+.task-form{
+  display: flex;
+  justify-content: space-between;
+}
+.task-input{
+  width: 100%;
+}
+.task-done{
+  text-decoration: line-through;
+  color: rgba(58, 59, 61, 0.83);
+}
+.task-not-done{
+  text-decoration: none;
+  color: #000000;
+}
