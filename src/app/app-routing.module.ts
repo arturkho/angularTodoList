@@ -4,18 +4,16 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {HomeComponent} from './components/home/home.component';
-import {TaskComponent} from './components/task/task.component';
-import {ListComponent} from './components/list/list.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'lists', component: ListsComponent},
-  {path: 'lists/:id', component: ListComponent},
+  {path: 'lists/:id', component: ListsComponent},
   {
     path: 'tasks',
     component: TasksComponent,
   },
-  {path: 'tasks/:id', component: TaskComponent},
+  {path: 'tasks/:id', component: TasksComponent},
   { path: '**', component: NotFoundComponent }
 ];
 

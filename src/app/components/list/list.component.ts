@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -10,11 +9,11 @@ export class ListComponent implements OnInit {
   openRemoveModal: string;
   @Input() list: any;
   @Output() listId = new EventEmitter();
+  @Output() navigateToList = new EventEmitter();
 
-  constructor(private ar: ActivatedRoute) {}
+  constructor() {}
 
   ngOnInit() {
-    this.ar.params.subscribe(id => console.log('list', id));
   }
 
   openModal(listId) {
@@ -26,7 +25,12 @@ export class ListComponent implements OnInit {
       this.openRemoveModal = '';
     }
   }
+
   removeList(listId) {
     this.listId.emit(listId);
+  }
+
+  navigate(listId) {
+    this.navigateToList.emit(listId);
   }
 }

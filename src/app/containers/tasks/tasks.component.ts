@@ -11,9 +11,7 @@ export class TasksComponent implements OnInit {
   tasks: any;
   @Input() addTaskFormIsOpen: number;
 
-  constructor(private taskService: TaskService) {
-
-  }
+  constructor(private taskService: TaskService) {}
 
   ngOnInit() {
     this.taskService.getTasksByListId(this.listId).subscribe(
@@ -26,12 +24,13 @@ export class TasksComponent implements OnInit {
   }
 
   updateTask(newTask, index) {
-    this.tasks.splice(index, 1, newTask);
+    this.taskService.updateTask(newTask).subscribe(t => {
+      this.tasks.splice(index, 1, t);
+    });
   }
 
   createTask(taskName) {
-    const id = Math.floor(Math.random() * 10000);
-    const task = {taskName, id, isDone: false, listId: this.listId};
+    const task = {taskName, isDone: false, listId: this.listId};
     this.taskService.createTask(task).subscribe(t => {
       this.tasks.push(t);
     });

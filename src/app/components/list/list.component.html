@@ -19,7 +19,7 @@
 </div>
 <div
   class="column-title d-flex justify-content-between">
-  <a [routerLink]="['/lists', list.id]">{{list.listName}}</a>
+  <div class="navigate-block" (click)="navigate(list.id)">{{list.listName}} -> </div>
   <button
     class="btn btn-danger btn-sm"
     (click)="openModal(list.id)">

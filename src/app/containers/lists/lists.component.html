@@ -8,6 +8,7 @@
     <app-list
       [list]="list"
       (listId)='removeCurrentList($event, i)'
+      (navigateToList)="navigateToList($event)"
     ></app-list>
   </div>
 </div>

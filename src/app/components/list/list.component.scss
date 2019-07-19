@@ -15,3 +15,11 @@
   background-color: #ffffff;
   padding: 1em;
 }
+.navigate-block{
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.9)
+}
+.navigate-block:hover{
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgb(39, 40, 44);
+}

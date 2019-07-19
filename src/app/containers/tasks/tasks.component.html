@@ -16,6 +16,5 @@
     [task]="task"
     (newTask)='updateTask($event, i)'
   ></app-task>
-  <router-outlet></router-outlet>
   <button (click)="removeTask(task.id, i)" class="btn btn-sm custom-btn">x</button>
 </li>

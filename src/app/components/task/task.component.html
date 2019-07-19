@@ -11,10 +11,7 @@
       class="task-name"
       [ngClass]="{'task-done': task.isDone === true, 'task-not-done': task.isDone === false}"
     >
-      <a
-        [routerLink]="['tasks', task.id]">
-        {{task.taskName}}
-      </a>
+      {{task.taskName}}
     </div>
     <div
       *ngIf="changeTask === task.id">

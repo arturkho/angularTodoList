@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {Task} from '../intefaces/task';
 
 @Injectable({
@@ -27,5 +26,8 @@ export class TaskService {
 
   removeTask(taskId) {
     return this.http.delete<Task>(this.ROOT_URL + 'tasks/' + taskId);
+  }
+  updateTask(task) {
+    return this.http.put<Task>(this.ROOT_URL + 'tasks/' + task.id , task);
   }
 }

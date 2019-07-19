@@ -22,9 +22,9 @@ export class TaskComponent implements OnInit {
     this.changeTask = taskId;
   }
 
-  acceptChanges(taskId) {
+  acceptChanges(id: any) {
     if (this.newTaskName && this.newTaskName !== '' && this.newTaskName.match(/^\s+$/) === null) {
-      this.task = {taskName: this.newTaskName, id: taskId, isDone: this.task.isDone, listId: this.task.listId};
+      this.task = {taskName: this.newTaskName, id: this.task.id, isDone: this.task.isDone, listId: this.task.listId};
       this.newTask.emit(this.task);
       this.changeTask = null;
     }
@@ -32,7 +32,7 @@ export class TaskComponent implements OnInit {
 
   update(isDone) {
     if (isBoolean(isDone) && isDone !== this.task.isDone) {
-      this.task = {taskName: this.task.taskName, id: this.task.taskId, isDone, listId: this.task.listId};
+      this.task = {taskName: this.task.taskName, id: this.task.id, isDone, listId: this.task.listId};
       this.newTask.emit(this.task);
     }
   }

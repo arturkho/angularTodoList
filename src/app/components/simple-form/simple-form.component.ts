@@ -27,7 +27,6 @@ export class SimpleFormComponent implements OnInit {
 
   save() {
     if (this.entityName && this.entityName !== '' && this.entityName.match(/^\s+$/) === null) {
-      console.log(typeof this.entityName, "here")
       this.isSave = true;
       this.add.emit(this.entityName);
     }

@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ListService} from '../../services/list.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-lists',
@@ -7,16 +8,26 @@ import {ListService} from '../../services/list.service';
   styleUrls: ['./lists.component.scss']
 })
 export class ListsComponent implements OnInit {
+
   lists: any;
 
-  constructor(private listService: ListService) {
+  constructor(private listService: ListService,
+              private ar: ActivatedRoute, private route: Router) {
   }
 
   ngOnInit() {
-    this.listService.getLists().subscribe(lists => {
-        this.lists = lists;
-      }
-    );
+    const listId = this.ar.snapshot.params.id;
+    if (listId === undefined) {
+      this.listService.getLists().subscribe(lists => {
+          this.lists = lists;
+        }
+      );
+    } else {
+      this.listService.getListById(listId).subscribe(lists => {
+          this.lists = [lists];
+        }
+      );
+    }
   }
 
   removeCurrentList(listId, index) {
@@ -25,11 +36,19 @@ export class ListsComponent implements OnInit {
   }
 
   createList(listName) {
-    const id = Math.floor(Math.random() * 10000);
-    const list = {listName, id};
+    const list = {listName};
     this.listService.createList(list).subscribe(l => {
-      console.log(l);
       this.lists.push(l);
     });
+  }
+
+  navigateToList(id) {
+    this.route
+      .navigate(['lists', id])
+      .then(z => {
+        this.listService.getListById(id).subscribe(list => {
+          this.lists = [list];
+        });
+      });
   }
 }
