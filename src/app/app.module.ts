@@ -6,7 +6,6 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
-// import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {AppComponent} from './app.component';
 import {TaskComponent} from './components/task/task.component';
 import {ListComponent} from './components/list/list.component';
@@ -33,7 +32,6 @@ import {FullPageListComponent} from './components/full-page-list/full-page-list.
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
-    // AngularFontAwesomeModule
   ],
   exports: [RouterModule],
   providers: [],

@@ -1,20 +1,37 @@
 <form class="task-form d-flex justify-content-between align-items-center">
   <div class="d-flex align-items-center justify-content-between col-md-12">
-<div class="d-flex">
-  <input
-    type="checkbox"
-    name="checkbox"
-    (change)="update(!task.isDone)"
-    [checked]="task.isDone"
-  >
-  <div
-    *ngIf="changeTask !== task.id"
-    class="task-name"
-    [ngClass]="{'task-done': task.isDone === true, 'task-not-done': task.isDone === false}"
-  >
-    {{task.taskName}}
-  </div>
-</div>
+    <div class="d-flex">
+      <input
+        type="checkbox"
+        name="checkbox"
+        (change)="update(!task.isDone)"
+        [checked]="task.isDone"
+      >
+      <div class="task-update-form">
+        <button
+          (click)="onChange(task.id)"
+          *ngIf="changeTask !== task.id"
+          class="btn btn-sm custom-btn"
+        >c
+        </button>
+        <button
+          class="btn btn-sm custom-btn"
+          (click)="acceptChanges(task.id)"
+          *ngIf="changeTask === task.id"
+        >Accept
+        </button>
+      </div>
+      <div
+        *ngIf="changeTask !== task.id"
+        class="task-name"
+        [ngClass]="{'task-done': task.isDone === true, 'task-not-done': task.isDone === false}"
+      >
+        <h3>{{task.taskName}}</h3>
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit...
+        </div>
+      </div>
+    </div>
     <div
       *ngIf="changeTask === task.id">
       <input
@@ -24,19 +41,5 @@
         class="task-input"
       >
     </div>
-  </div>
-  <div class="task-update-form">
-    <button
-      (click)="onChange(task.id)"
-      *ngIf="changeTask !== task.id"
-      class="btn btn-sm custom-btn"
-    >c
-    </button>
-    <button
-      class="btn btn-sm custom-btn"
-      (click)="acceptChanges(task.id)"
-      *ngIf="changeTask === task.id"
-    >Accept
-    </button>
   </div>
 </form>
