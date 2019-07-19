@@ -8,7 +8,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./lists.component.scss']
 })
 export class ListsComponent implements OnInit {
-
+  singleList: any;
   lists: any;
 
   constructor(private listService: ListService,
@@ -23,8 +23,8 @@ export class ListsComponent implements OnInit {
         }
       );
     } else {
-      this.listService.getListById(listId).subscribe(lists => {
-          this.lists = [lists];
+      this.listService.getListById(listId).subscribe(list => {
+          this.singleList = list;
         }
       );
     }
@@ -47,7 +47,7 @@ export class ListsComponent implements OnInit {
       .navigate(['lists', id])
       .then(z => {
         this.listService.getListById(id).subscribe(list => {
-          this.lists = [list];
+          this.singleList = list;
         });
       });
   }

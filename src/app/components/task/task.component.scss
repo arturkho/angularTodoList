@@ -10,8 +10,10 @@ app-task{
 .task-done{
   text-decoration: line-through;
   color: rgba(58, 59, 61, 0.83);
+  margin: 1em;
 }
 .task-not-done{
   text-decoration: none;
   color: #000000;
+  margin: 1em
 }

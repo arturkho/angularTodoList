@@ -6,7 +6,7 @@ import {NotFoundComponent} from './components/not-found/not-found.component';
 import {HomeComponent} from './components/home/home.component';
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: ListsComponent},
   {path: 'lists', component: ListsComponent},
   {path: 'lists/:id', component: ListsComponent},
   {
@@ -14,7 +14,7 @@ const appRoutes: Routes = [
     component: TasksComponent,
   },
   {path: 'tasks/:id', component: TasksComponent},
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

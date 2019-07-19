@@ -1,0 +1,10 @@
+<div
+  class="column-title d-flex">
+  <button (click)="navigate()" class="custom-btn btn btn-sm back-btn"><- ALL LISTS</button>
+ <div class="name-wrapper">
+   <h1>{{list.listName}}</h1>
+ </div>
+</div>
+<app-tasks
+  [listId]="list.id"
+></app-tasks>

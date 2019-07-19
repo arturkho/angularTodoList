@@ -1,15 +1,21 @@
-<div>
+<div *ngIf="!ar.snapshot.params.id">
   <app-simple-form
     [usage]="'list'"
     (add)="createList($event)"
   ></app-simple-form>
-<div class="d-flex">
-  <div *ngFor="let list of lists let i = index" class="border list-container">
-    <app-list
-      [list]="list"
-      (listId)='removeCurrentList($event, i)'
-      (navigateToList)="navigateToList($event)"
-    ></app-list>
+  <div class="d-flex">
+    <div *ngFor="let list of lists let i = index" class="border list-container">
+      <app-list
+        [list]="list"
+        (listId)='removeCurrentList($event, i)'
+        (navigateToList)="navigateToList($event)"
+      ></app-list>
+    </div>
   </div>
 </div>
+
+<div *ngIf="ar.snapshot.params.id" >
+  <app-full-page-list
+    [list]="singleList"
+  ></app-full-page-list>
 </div>
