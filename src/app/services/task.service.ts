@@ -6,7 +6,7 @@ import {Task} from '../intefaces/task';
   providedIn: 'root'
 })
 export class TaskService {
-  ROOT_URL = 'http://localhost:3000/';
+  ROOT_URL = 'http://localhost:8080/';
   options = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -17,7 +17,7 @@ export class TaskService {
   }
 
   getTasksByListId(listId) {
-    return this.http.get<Task>(this.ROOT_URL + 'tasks?listId=' + listId);
+    return this.http.get<Task>(this.ROOT_URL + 'tasks/' + listId);
   }
 
   createTask(task) {

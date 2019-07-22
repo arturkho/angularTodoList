@@ -6,7 +6,7 @@ import {List} from '../intefaces/list';
   providedIn: 'root'
 })
 export class ListService {
-  ROOT_URL = 'http://localhost:3000/';
+  ROOT_URL = 'http://localhost:8080/';
   options = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

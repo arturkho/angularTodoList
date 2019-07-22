@@ -15,8 +15,11 @@ export class TasksComponent implements OnInit {
 
   ngOnInit() {
     this.taskService.getTasksByListId(this.listId).subscribe(
-      tasks => this.tasks = tasks
+      tasks => {
+        this.tasks = tasks;
+      }
     );
+    console.log(this.tasks, 'here');
   }
 
   openAddTaskForm(listId) {
