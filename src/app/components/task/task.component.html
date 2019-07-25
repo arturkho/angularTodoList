@@ -4,8 +4,8 @@
       <input
         type="checkbox"
         name="checkbox"
-        (change)="update(!task.isDone)"
-        [checked]="task.isDone"
+        (change)="update(!task.done)"
+        [checked]="task.done"
       >
       <div class="task-update-form">
         <button
@@ -24,7 +24,7 @@
       <div
         *ngIf="changeTask !== task.id"
         class="task-name"
-        [ngClass]="{'task-done': task.isDone === true, 'task-not-done': task.isDone === false}"
+        [ngClass]="{'task-done': task.done === true, 'task-not-done': task.done === false}"
       >
         <h3>{{task.taskName}}</h3>
         <div>

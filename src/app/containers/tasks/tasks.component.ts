@@ -19,7 +19,6 @@ export class TasksComponent implements OnInit {
         this.tasks = tasks;
       }
     );
-    console.log(this.tasks, 'here');
   }
 
   openAddTaskForm(listId) {
@@ -46,7 +45,6 @@ export class TasksComponent implements OnInit {
   }
 
   closeForm(value) {
-    console.log(value);
     this.addTaskFormIsOpen = value;
   }
 }

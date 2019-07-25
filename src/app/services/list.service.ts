@@ -19,13 +19,16 @@ export class ListService {
   getLists() {
     return this.http.get<List>(this.ROOT_URL + 'lists/');
   }
+
   getListById(id) {
     return this.http.get<List>(this.ROOT_URL + 'lists/' + id);
   }
+
   createList(list) {
     return this.http.post(this.ROOT_URL + 'lists', list, this.options);
   }
+
   removeList(listId) {
-    return  this.http.delete<List>(this.ROOT_URL + 'lists/' + listId);
+    return this.http.delete<List>(this.ROOT_URL + 'lists/' + listId);
   }
 }

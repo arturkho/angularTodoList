@@ -41,30 +41,6 @@
       "isDone": false,
       "listId": 10,
       "id": 27
-    },
-    {
-      "taskName": "888",
-      "isDone": false,
-      "listId": 11,
-      "id": 28
-    },
-    {
-      "taskName": "2",
-      "isDone": false,
-      "listId": 10,
-      "id": 29
-    },
-    {
-      "taskName": "234",
-      "isDone": false,
-      "listId": 11,
-      "id": 30
-    },
-    {
-      "taskName": "23",
-      "isDone": false,
-      "listId": 10,
-      "id": 31
     }
   ]
 }

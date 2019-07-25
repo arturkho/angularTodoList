@@ -1,4 +1,3 @@
-import {SimpleFormComponent} from './commonsModule/simple-form/simple-form.component';
 import {TasksComponent} from './containers/tasks/tasks.component';
 import {ListsComponent} from './containers/lists/lists.component';
 import {BrowserModule} from '@angular/platform-browser';
@@ -14,11 +13,11 @@ import {AppRoutingModule} from './app-routing.module';
 import {HomeComponent} from './components/home/home.component';
 import {FullPageListComponent} from './components/full-page-list/full-page-list.component';
 import {SinglePageListComponent} from './containers/single-page-list/single-page-list.component';
+import {AppSimpleFormModule} from './commonsModule/simple-form.module';
 
 @NgModule({
     declarations: [
         AppComponent,
-        SimpleFormComponent,
         NotFoundComponent,
         HomeComponent,
         TaskComponent,
@@ -34,9 +33,10 @@ import {SinglePageListComponent} from './containers/single-page-list/single-page
         RouterModule,
         AppRoutingModule,
         HttpClientModule,
+        AppSimpleFormModule
     ],
     exports: [RouterModule],
-    providers: [],
+    providers: [AppSimpleFormModule],
     bootstrap: [AppComponent]
 })
 export class AppModule {

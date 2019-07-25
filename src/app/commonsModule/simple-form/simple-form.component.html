@@ -5,6 +5,7 @@
          [(ngModel)]="entityName"
          class="simple-form-input"
          (keydown)="close($event)"
+         placeholder="{{usage}} name"
   >
   <button (click)="save()" class="btn custom-btn btn-sm">+ {{usage}}</button>
 </div>
