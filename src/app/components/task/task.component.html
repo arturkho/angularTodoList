@@ -27,9 +27,7 @@
         [ngClass]="{'task-done': task.done === true, 'task-not-done': task.done === false}"
       >
         <h3>{{task.taskName}}</h3>
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit...
-        </div>
+        <app-task-description></app-task-description>
       </div>
     </div>
     <div

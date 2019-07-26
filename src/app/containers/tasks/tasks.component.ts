@@ -6,15 +6,19 @@ import {TaskService} from '../../services/task.service';
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss']
 })
-export class TasksComponent implements OnInit {
-  @Input() listId: number;
+export class TasksComponent {
+  // tslint:disable-next-line:variable-name
+  _listId: number;
   tasks: any;
   @Input() addTaskFormIsOpen: number;
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService) {
+  }
 
-  ngOnInit() {
-    this.taskService.getTasksByListId(this.listId).subscribe(
+  @Input()
+  set listId(listId: number) {
+    this._listId = listId;
+    this.taskService.getTasksByListId(this._listId).subscribe(
       tasks => {
         this.tasks = tasks;
       }
@@ -32,7 +36,7 @@ export class TasksComponent implements OnInit {
   }
 
   createTask(taskName) {
-    const task = {taskName, isDone: false, listId: this.listId};
+    const task = {taskName, done: false, listId: this._listId};
     this.taskService.createTask(task).subscribe(t => {
       this.tasks.push(t);
     });

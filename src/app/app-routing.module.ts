@@ -1,4 +1,3 @@
-import {TasksComponent} from './containers/tasks/tasks.component';
 import {ListsComponent} from './containers/lists/lists.component';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
@@ -9,11 +8,6 @@ const appRoutes: Routes = [
   {path: '', component: ListsComponent},
   {path: 'lists', component: ListsComponent},
   {path: 'lists/:id', component: SinglePageListComponent},
-  {
-    path: 'tasks',
-    component: TasksComponent,
-  },
-  {path: 'tasks/:id', component: TasksComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

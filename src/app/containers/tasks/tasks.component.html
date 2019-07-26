@@ -1,12 +1,12 @@
 <app-simple-form
-  *ngIf="addTaskFormIsOpen === listId"
+  *ngIf="addTaskFormIsOpen === _listId"
   [usage]="'task'"
   (add)="createTask($event)"
   (onClose)="closeForm($event)"
 ></app-simple-form>
 <button
-  *ngIf="addTaskFormIsOpen !== listId"
-  (click)="openAddTaskForm(listId)"
+  *ngIf="addTaskFormIsOpen !== _listId"
+  (click)="openAddTaskForm(_listId)"
   class="add-task-btn">
   ADD TASK
 </button>

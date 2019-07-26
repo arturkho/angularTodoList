@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {isBoolean} from 'util';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-task',

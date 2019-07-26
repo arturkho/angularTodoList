@@ -9,7 +9,7 @@ import {ListService} from '../../services/list.service';
 })
 export class FullPageListComponent implements OnInit {
     @Input() list: any;
-    @Output() nextList = new EventEmitter();
+    @Output() prevList = new EventEmitter();
 
     constructor(private ar: ActivatedRoute, private route: Router, private listService: ListService) {
     }
@@ -22,6 +22,6 @@ export class FullPageListComponent implements OnInit {
     }
 
     nextNavigate() {
-        this.nextList.emit(this.list.id);
+        this.prevList.emit(this.list.id);
     }
 }
