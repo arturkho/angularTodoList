@@ -4,6 +4,7 @@
       <input
         type="checkbox"
         name="checkbox"
+        class="task-checkbox"
         (change)="update(!task.done)"
         [checked]="task.done"
       >
@@ -26,8 +27,7 @@
         class="task-name"
         [ngClass]="{'task-done': task.done === true, 'task-not-done': task.done === false}"
       >
-        <h3>{{task.taskName}}</h3>
-        <app-task-description></app-task-description>
+        <h3>{{task.taskName.substring(0, 8) + (task.taskName.length > 8 ? '...' : '')}}</h3>
       </div>
     </div>
     <div
@@ -41,3 +41,4 @@
     </div>
   </div>
 </form>
+

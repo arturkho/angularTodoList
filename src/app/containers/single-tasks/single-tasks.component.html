@@ -1,0 +1,34 @@
+<app-simple-form
+  *ngIf="addTaskFormIsOpen === _listId"
+  [usage]="'task'"
+  (add)="createTask($event)"
+  (onClose)="closeForm($event)"
+></app-simple-form>
+<button
+  *ngIf="addTaskFormIsOpen !== _listId"
+  (click)="openAddTaskForm(_listId)"
+  class="add-task-btn">
+  ADD TASK
+</button>
+<li *ngFor="let task of tasks$ | async, let i = index"
+    class="list-item d-flex align-items-center col-md-12">
+  <app-task
+    class="col-md-2"
+    [task]="task"
+    (newTask)='updateTask($event, i)'
+  ></app-task>
+  <div class="d-flex align-items-center justify-content-start col-md-8">
+    <app-task-description
+      *ngIf="taskId !== task.id"
+      [task]="task"
+      (openDescriptionForm)="openDescription($event)"
+    >
+    </app-task-description>
+    <app-simple-form
+      *ngIf="taskId === task.id"
+      [usage]="'Task description'"
+      (add)="addDescription($event, task, i)"
+    ></app-simple-form>
+  </div>
+  <button (click)="removeTask(task.id, i)" class="btn btn-sm custom-btn">x</button>
+</li>

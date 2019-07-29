@@ -1,2 +1,17 @@
-<p>task-description!</p>
-<p></p>
+<div class="d-flex justify-content-start container">
+  <div
+    class="task-short-description"
+    (click)="openForm(task.id)">
+    {{task.description
+      ? task.description.substring(0, 8) + '...'
+      : 'task-description!'}}
+  </div>
+  <div
+    class="container"
+    *ngIf="task.description"
+  >
+    <p>
+      {{task.description}}
+    </p>
+  </div>
+</div>

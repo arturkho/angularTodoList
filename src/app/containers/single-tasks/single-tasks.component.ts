@@ -2,20 +2,22 @@ import {Component, Input, OnInit} from '@angular/core';
 import {TaskService} from '../../services/task.service';
 import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import {Task} from '../../intefaces/task';
-import {filter, map, scan, switchMap, tap} from 'rxjs/operators';
-
+import {map, scan, switchMap} from 'rxjs/operators';
 
 type TaskAction = (tasks: Task[]) => Task[];
 const applyAction = (tasks, action) => action(tasks);
 
 @Component({
-  selector: 'app-tasks',
-  templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.scss']
+  selector: 'app-single-tasks',
+  templateUrl: './single-tasks.component.html',
+  styleUrls: ['./single-tasks.component.scss']
 })
-export class TasksComponent implements OnInit {
+
+export class SingleTasksComponent implements OnInit {
+
   // tslint:disable-next-line:variable-name
   _listId: number;
+  taskId: number;
   tasks$: Observable<Task[]>;
 
   actions$: Subject<TaskAction> = new BehaviorSubject(tasks => tasks);
@@ -29,6 +31,14 @@ export class TasksComponent implements OnInit {
   set listId(listId: number) {
     this._listId = listId;
     this.tasks$ = this.taskService.getTasksByListId(this._listId);
+    this.tasks$ = this.tasks$
+      .pipe(
+        switchMap((lists) => {
+          return this.actions$.pipe(
+            scan<TaskAction, Task[]>(applyAction, lists)
+          );
+        }),
+      );
   }
 
   ngOnInit() {
@@ -71,6 +81,7 @@ export class TasksComponent implements OnInit {
   }
 
   removeTask(taskId, index) {
+    console.log(taskId, this._listId)
     this.taskService.removeTask(taskId).pipe(
       map(_ => tasks => {
         return tasks.slice(0, index).concat(tasks.slice(index + 1));
@@ -83,4 +94,15 @@ export class TasksComponent implements OnInit {
   closeForm(value) {
     this.addTaskFormIsOpen = value;
   }
+
+  openDescription(taskId) {
+    this.taskId = taskId;
+  }
+
+  addDescription(description, task, index) {
+    this.taskId = null;
+    const newTask = {taskName: task.taskName, listId: task.listId, id: task.id, done: task.done, description};
+    this.updateTask(newTask, index);
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-task-description',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-description.component.scss']
 })
 export class TaskDescriptionComponent implements OnInit {
-
+  @Input() task: any;
+  @Output() openDescriptionForm = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
-
+  openForm(id) {
+    this.openDescriptionForm.emit(id);
+  }
 }

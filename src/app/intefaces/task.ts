@@ -3,4 +3,5 @@ export interface Task {
   taskName: string;
   done: boolean;
   listId: number;
+  description: string;
 }
