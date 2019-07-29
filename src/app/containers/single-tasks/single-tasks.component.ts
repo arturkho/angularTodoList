@@ -31,14 +31,6 @@ export class SingleTasksComponent implements OnInit {
   set listId(listId: number) {
     this._listId = listId;
     this.tasks$ = this.taskService.getTasksByListId(this._listId);
-    this.tasks$ = this.tasks$
-      .pipe(
-        switchMap((lists) => {
-          return this.actions$.pipe(
-            scan<TaskAction, Task[]>(applyAction, lists)
-          );
-        }),
-      );
   }
 
   ngOnInit() {
@@ -81,7 +73,6 @@ export class SingleTasksComponent implements OnInit {
   }
 
   removeTask(taskId, index) {
-    console.log(taskId, this._listId)
     this.taskService.removeTask(taskId).pipe(
       map(_ => tasks => {
         return tasks.slice(0, index).concat(tasks.slice(index + 1));
@@ -93,10 +84,6 @@ export class SingleTasksComponent implements OnInit {
 
   closeForm(value) {
     this.addTaskFormIsOpen = value;
-  }
-
-  openDescription(taskId) {
-    this.taskId = taskId;
   }
 
   addDescription(description, task, index) {

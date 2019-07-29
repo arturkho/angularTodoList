@@ -1,10 +1,11 @@
 .task-short-description{
   cursor: pointer;
-  width: 11em;
+  width: 40em;
   height: 4em;
   color: rgba(0, 0, 0, 0.4);
-  background: rgba(169, 157, 145, 0.1);
-  text-align: center;
+  background-color: rgba(222, 227, 213, 0.3);
+  text-align: start;
+  padding-left: 1em;
 }
 .task-short-description:hover{
   background: rgba(169, 157, 145, 0.41)

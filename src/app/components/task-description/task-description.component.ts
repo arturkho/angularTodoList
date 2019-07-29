@@ -7,12 +7,20 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class TaskDescriptionComponent implements OnInit {
   @Input() task: any;
-  @Output() openDescriptionForm = new EventEmitter();
+  isOpenForm: boolean;
+  inputValue: any;
+  @Output() addDescription = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+    this.inputValue = this.task.description;
   }
-  openForm(id) {
-    this.openDescriptionForm.emit(id);
+  openForm() {
+    this.isOpenForm = true;
+  }
+  onSubmit() {
+    this.addDescription.emit(this.inputValue);
+    this.isOpenForm = false;
   }
 }

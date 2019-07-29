@@ -9,10 +9,11 @@ import {isBoolean} from 'util';
 export class TaskComponent implements OnInit {
   newTaskName: string;
   @Input() task: any;
-  @Output() newTask = new EventEmitter<{ taskName?: string, id?: number, done?: boolean }>();
+  @Output() newTask = new EventEmitter<{ taskName?: string, id?: number, done?: boolean, description?: string }>();
   changeTask: number;
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -23,7 +24,13 @@ export class TaskComponent implements OnInit {
 
   acceptChanges(id: any) {
     if (this.newTaskName && this.newTaskName !== '' && this.newTaskName.match(/^\s+$/) === null) {
-      this.task = {taskName: this.newTaskName, id: this.task.id, done: this.task.done, listId: this.task.listId};
+      this.task = {
+        taskName: this.newTaskName,
+        id: this.task.id,
+        done: this.task.done,
+        listId: this.task.listId,
+        description: this.task.description
+      };
       this.newTask.emit(this.task);
       this.changeTask = null;
     }
@@ -31,7 +38,11 @@ export class TaskComponent implements OnInit {
 
   update(done) {
     if (isBoolean(done) && done !== this.task.done) {
-      this.task = {taskName: this.task.taskName, id: this.task.id, done, listId: this.task.listId};
+      this.task = {
+        taskName: this.task.taskName,
+        id: this.task.id, done,
+        listId: this.task.listId,
+        description: this.task.description};
       this.newTask.emit(this.task);
     }
   }

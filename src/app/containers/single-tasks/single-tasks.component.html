@@ -19,16 +19,10 @@
   ></app-task>
   <div class="d-flex align-items-center justify-content-start col-md-8">
     <app-task-description
-      *ngIf="taskId !== task.id"
       [task]="task"
-      (openDescriptionForm)="openDescription($event)"
+      (addDescription)="addDescription($event, task, i)"
     >
     </app-task-description>
-    <app-simple-form
-      *ngIf="taskId === task.id"
-      [usage]="'Task description'"
-      (add)="addDescription($event, task, i)"
-    ></app-simple-form>
   </div>
   <button (click)="removeTask(task.id, i)" class="btn btn-sm custom-btn">x</button>
 </li>

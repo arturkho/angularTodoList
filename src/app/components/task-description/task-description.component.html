@@ -1,17 +1,30 @@
-<div class="d-flex justify-content-start container">
+<div class="d-flex justify-content-start container ">
   <div
+    *ngIf="!isOpenForm"
     class="task-short-description"
-    (click)="openForm(task.id)">
+    (click)="openForm()">
     {{task.description
-      ? task.description.substring(0, 8) + '...'
+      ? task.description.substring(0, 40) + '...'
       : 'task-description!'}}
   </div>
-  <div
+
+  <form
     class="container"
-    *ngIf="task.description"
+    *ngIf="isOpenForm"
+    (ngSubmit)="onSubmit()"
   >
-    <p>
-      {{task.description}}
-    </p>
-  </div>
+    <textarea
+      [(ngModel)]="inputValue"
+      name="description"
+      id=""
+      cols="40"
+      rows="10"
+    >
+    </textarea>
+    <button
+      type="submit"
+    >
+      Add description
+    </button>
+  </form>
 </div>
