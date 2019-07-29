@@ -10,7 +10,7 @@
   class="add-task-btn">
   ADD TASK
 </button>
-<li *ngFor="let task of tasks, let i = index"
+<li *ngFor="let task of tasks$ | async, let i = index"
     class="list-item d-flex justify-content-between align-items-center">
   <app-task
     [task]="task"

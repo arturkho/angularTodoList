@@ -17,7 +17,7 @@ export class TaskService {
   }
 
   getTasksByListId(listId) {
-    return this.http.get<Task>(this.ROOT_URL + 'tasks/' + listId);
+    return this.http.get<Task[]>(this.ROOT_URL + 'tasks/' + listId);
   }
 
   createTask(task) {
